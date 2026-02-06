@@ -675,14 +675,94 @@
         /* --- 8. Promfinish & Service --- */
         .promfinish-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            align-items: stretch;
+            margin-bottom: 18px;
         }
+
+        .promfinish-zone {
+            background: #fff;
+            border: 1px solid #ffe1bf;
+            border-radius: 14px;
+            overflow: hidden;
+            display: grid;
+            align-content: start;
+        }
+
+        .promfinish-zone img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .promfinish-zone-meta {
+            padding: 12px 14px;
+        }
+
+        .promfinish-zone-title {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #000;
+        }
+
         .promfinish-img {
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .promfinish-infra {
+            margin-top: 28px;
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid #ffd7ad;
+            background: linear-gradient(180deg, #fff9f1 0%, #fff2e2 100%);
+        }
+
+        .promfinish-infra-title {
+            margin-bottom: 6px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .promfinish-infra-subtitle {
+            margin: 0 0 18px;
+            color: #333;
+            font-size: 0.98rem;
+        }
+
+        .promfinish-infra-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .promfinish-infra-card {
+            background: #fff;
+            border: 1px solid #ffe1bf;
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .promfinish-infra-card h4 {
+            margin: 0 0 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .promfinish-infra-list {
+            margin: 0;
+            padding-left: 18px;
+            display: grid;
+            gap: 7px;
+            color: #222;
+            font-size: 0.93rem;
+            line-height: 1.4;
         }
 
         .service-grid {
@@ -711,6 +791,27 @@
             display: inline-block;
         }
         .service-card h3 { color: var(--color-secondary); }
+
+        .service-book-btn {
+            margin-top: 12px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid #FF8A00;
+            background: #fff;
+            color: #FF8A00;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+
+        .service-book-btn:hover {
+            background: #FF8A00;
+            color: #fff;
+            transform: translateY(-1px);
+        }
 
         /* --- 9. FAQ --- */
         .faq-section {
@@ -864,7 +965,7 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 34px;
             align-items: start;
         }
@@ -1227,6 +1328,9 @@
             }
 
             .promfinish-container { grid-template-columns: 1fr; }
+            .promfinish-zone img { height: 210px; }
+            .promfinish-infra { padding: 16px; margin-top: 18px; }
+            .promfinish-infra-grid { grid-template-columns: 1fr; gap: 10px; }
             .pricing-cards { grid-template-columns: 1fr; }
             .price-card.active { transform: scale(1); border-width: 2px; }
 
@@ -1498,18 +1602,67 @@
         <div class="container">
             <h2 class="section-title">Промфиниш</h2>
             <div class="promfinish-container">
-                <div class="promfinish-text">
-                    <p>Сердце нашей гонки — это лагерь на берегу реки Нерская. Здесь время останавливается.</p>
-                    <ul style="margin-top: 20px; list-style: disc; padding-left: 20px;">
-                        <li>Живописная поляна в сосновом лесу.</li>
-                        <li>Источник питьевой воды.</li>
-                        <li>Костёр и горячий чай от организаторов.</li>
-                        <li>Возможность искупаться после пыльных дорог.</li>
-                    </ul>
-                    <p style="margin-top: 20px; color: var(--color-primary);">* Ночевка обязательна. Палатку и спальник везем сами!</p>
-                </div>
-                <div class="promfinish-img">
-                    <img src="camp.jpg" alt="Кемп на промфинише">
+                <article class="promfinish-zone">
+                    <img src="prom3.jpeg" alt="Промфиниш — атмосфера лагеря">
+                    <div class="promfinish-zone-meta">
+                        <h3 class="promfinish-zone-title">Атмосфера промфиниша</h3>
+                    </div>
+                </article>
+
+                <article class="promfinish-zone">
+                    <img src="prom2.jpeg" alt="Промфиниш — зона релакса">
+                    <div class="promfinish-zone-meta">
+                        <h3 class="promfinish-zone-title">Релакс и восстановление</h3>
+                    </div>
+                </article>
+
+                <article class="promfinish-zone">
+                    <img src="prom1.jpeg" alt="Промфиниш — зона кемпа">
+                    <div class="promfinish-zone-meta">
+                        <h3 class="promfinish-zone-title">Кемп и размещение</h3>
+                    </div>
+                </article>
+            </div>
+
+            <div class="promfinish-infra">
+                <h3 class="promfinish-infra-title">Инфраструктура Промфиниша</h3>
+                <p class="promfinish-infra-subtitle">Максимум заботы о райдерах в одной локации.</p>
+
+                <div class="promfinish-infra-grid">
+                    <article class="promfinish-infra-card">
+                        <h4>🍽 Еда и напитки</h4>
+                        <ul class="promfinish-infra-list">
+                            <li>Горячая кухня и сытные завтраки.</li>
+                            <li>Традиционная самоварная с ароматным чайным мастером.</li>
+                            <li>Питьевая вода в неограниченном доступе.</li>
+                        </ul>
+                    </article>
+
+                    <article class="promfinish-infra-card">
+                        <h4>🧖‍♂️ Релакс-зона</h4>
+                        <ul class="promfinish-infra-list">
+                            <li>Мобильная баня на берегу реки.</li>
+                            <li>Услуги профессионального пармастера.</li>
+                            <li>Массажный салон.</li>
+                        </ul>
+                    </article>
+
+                    <article class="promfinish-infra-card">
+                        <h4>🔥 Атмосфера и уют</h4>
+                        <ul class="promfinish-infra-list">
+                            <li>Лобное место с большим костром.</li>
+                            <li>Легкая вечеринка (Party time!) под открытым небом.</li>
+                            <li>Лаунж с освежающими напитками и тапасами.</li>
+                        </ul>
+                    </article>
+
+                    <article class="promfinish-infra-card">
+                        <h4>⚡️ Сервис</h4>
+                        <ul class="promfinish-infra-list">
+                            <li>Электричество для зарядки навигации и телефонов.</li>
+                            <li>Организованная велопарковка и туалеты.</li>
+                        </ul>
+                    </article>
                 </div>
             </div>
         </div>
@@ -1526,14 +1679,17 @@
                         <div class="card service-card">
                             <h3>Массаж</h3>
                             <p>Восстановительный спортивный массаж после финиша этапа для снятия мышечного напряжения.</p>
+                            <button class="service-book-btn" type="button">Забронировать слот</button>
                         </div>
                         <div class="card service-card">
-                            <h3>Баня</h3>
-                            <p>Тёплая баня в лагере промфиниша для полноценного восстановления и отдыха.</p>
+                            <h3>Мобильная баня</h3>
+                            <p>Мобиба спа В лагере промфиниша для полноценного восстановления и отдыха. Мобиба спа — сердце нашего промфиниша</p>
+                            <button class="service-book-btn" type="button">Забронировать слот</button>
                         </div>
                         <div class="card service-card">
                             <h3>Байк-фит</h3>
                             <p>Быстрая настройка посадки и базовая корректировка велосипеда перед стартом.</p>
+                            <button class="service-book-btn" type="button">Забронировать слот</button>
                         </div>
                     </div>
                 </div>
@@ -1544,14 +1700,17 @@
                         <div class="card service-card">
                             <h3>Ужин</h3>
                             <p>Горячий ужин в кемпе промфиниша после первого соревновательного дня.</p>
+                            <button class="service-book-btn" type="button">Забронировать слот</button>
                         </div>
                         <div class="card service-card">
                             <h3>Завтрак</h3>
                             <p>Сытный завтрак перед стартом второго дня, чтобы спокойно выйти на этап.</p>
+                            <button class="service-book-btn" type="button">Забронировать слот</button>
                         </div>
                         <div class="card service-card">
                             <h3>Самоварная</h3>
                             <p>Чайная зона с самоваром и перекусом для участников и гостей лагеря.</p>
+                            <button class="service-book-btn" type="button">Забронировать слот</button>
                         </div>
                     </div>
                 </div>
@@ -1679,9 +1838,8 @@
                     <h3 class="footer-heading">Ссылки</h3>
                     <ul class="footer-list">
                         <li><a href="#registration" class="footer-link">Страница для гонщиков 2026</a></li>
-                        <li><a href="#registration" class="footer-link">Регистрация на E-Champs</a></li>
                         <li><a href="#" class="footer-link">Участники гонки 2025</a></li>
-                        <li><a href="#" class="footer-link">Протокол гонки 2025</a></li>
+                        <li><a href="#" class="footer-link">Участники гонки 2024</a></li>
                         <li><a href="#" class="footer-link">Фото</a></li>
                     </ul>
                 </div>
@@ -1704,18 +1862,6 @@
                     </ul>
                 </div>
 
-                <div class="footer-column">
-                    <h3 class="footer-heading">Подписаться</h3>
-                    <form class="footer-subscribe-form" action="#">
-                        <input type="email" class="footer-input" placeholder="Email" aria-label="Email для подписки">
-                        <button type="submit" class="footer-send" aria-label="Отправить">➤</button>
-                    </form>
-                    <div class="footer-social">
-                        <a href="#" class="footer-social-link" aria-label="Instagram">◉</a>
-                        <a href="https://t.me/na_nerskuyu" class="footer-social-link" aria-label="Telegram">✈</a>
-                        <a href="#" class="footer-social-link" aria-label="ВКонтакте">VK</a>
-                    </div>
-                </div>
             </div>
 
             <div class="footer-bottom">
