@@ -291,27 +291,39 @@
         }
 
         .about-intro {
-            max-width: 820px;
+            max-width: 1020px;
             margin: 0 auto 35px;
-            text-align: center;
-            font-size: 1.05rem;
+            display: grid;
+            gap: 14px;
+            text-align: justify;
+            text-justify: inter-word;
+            font-size: 1.03rem;
+            line-height: 1.75;
             color: #000;
+        }
+
+        .about-intro p {
+            margin: 0;
         }
 
         /* --- 5. About (Grid) --- */
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            max-width: 1020px;
+            margin: 0 auto;
+            align-items: start;
         }
 
         .about-toggle {
             background: linear-gradient(140deg, #ffffff 0%, #fff2e2 100%);
             border: 1px solid #ffd7ad;
-            border-radius: 22px;
+            border-radius: 14px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: var(--transition);
+            min-height: 130px;
         }
 
         .about-toggle:hover {
@@ -327,7 +339,7 @@
         .about-toggle summary {
             list-style: none;
             cursor: pointer;
-            padding: 22px 22px 18px;
+            padding: 16px 16px 14px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -434,20 +446,61 @@
         }
 
         .price-card {
-            background: var(--color-surface);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #ffffff 0%, #fff7ee 100%);
             padding: 30px;
             border-radius: var(--border-radius);
             text-align: center;
-            border: 1px solid #d9d9d9;
-            opacity: 0.6;
+            border: 1px solid #ffd7ad;
+            opacity: 1;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.07);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #FF8A00, #FFB347);
+            transform: scaleX(0.35);
+            transform-origin: left;
+            transition: transform 0.28s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-6px);
+            border-color: #ffbf80;
+            box-shadow: 0 16px 35px rgba(0,0,0,0.12);
+        }
+
+        .price-card:hover::before {
+            transform: scaleX(1);
         }
 
         .price-card.active {
             opacity: 1;
-            border: 2px solid var(--color-primary);
-            transform: scale(1.05);
-            background: linear-gradient(145deg, #1e1e1e, #252525);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid #FF8A00;
+            transform: translateY(-4px) scale(1.03);
+            background: linear-gradient(180deg, #fff8ef 0%, #ffe7cb 100%);
+            box-shadow: 0 18px 40px rgba(255,138,0,0.28);
+        }
+
+        .price-card.active::after {
+            content: 'Актуально';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #FF8A00;
+            color: #fff;
+            letter-spacing: 0.4px;
         }
 
         .price-amount {
@@ -876,7 +929,7 @@
         <div class="container hero-content">
             <div class="hero-top-strip">26–27 июля</div>
             <h1>Нерская байкпакинговая<br>гонка</h1>
-            <p class="hero-subtitle">Москва-Нерская-Коломна 170 км</p>
+            <p class="hero-subtitle">Москва - р.Нерская - Коломна 110 + 60 км</p>
             <a href="#registration" class="hero-bottom-strip">Зарегистрироваться</a>
         </div>
     </section>
@@ -885,17 +938,22 @@
     <section class="section" id="about">
         <div class="container">
             <h2 class="section-title">О гонке</h2>
-            <p class="about-intro">Нерская байкпакинговая гонка — это двухдневный маршрут с ночёвкой на природе, в формате самообеспечения и дружеской атмосферы. Едем через леса, поля и малые дороги Подмосковья от Москвы до Коломны через Нерскую.</p>
+            <div class="about-intro">
+                <p>Нерская байкпакинг-гонка — это двухдневное велосипедное приключение по маршруту Москва — Коломна с полной свободой и самообеспечением. Это не спорт и не гонка на результат. Это путь, ритм и настоящее ощущение дороги.</p>
+                <p>Мы едем по заранее заданному треку, ориентируемся на местности, открываем для себя ближнее Подмосковье — его леса, реки, забытые дороги, исторические и природные точки, мимо которых обычно проезжают мимо.</p>
+                <p>Участников ждёт обязательная ночёвка на промежуточном финише — в полевых условиях, без гостиниц, машин и посторонней помощи. Всё необходимое — снаряжение, еду, воду и одежду — каждый везёт с собой. Только велосипед, рюкзаки и ты.</p>
+                <p>Нерская — это про байкпакинг как образ мышления. Про движение на педалях. Про простые решения. Про дорогу от Москвы к Коломне, которая запомнится надолго.</p>
+            </div>
             <div class="about-grid">
-                <details class="about-toggle" open>
+                <details class="about-toggle">
                     <summary>
                         <span class="about-head">
-                            <span class="about-value">170 км</span>
-                            <span class="about-label">Маршрут</span>
+                            <span class="about-value">26–27 июля</span>
+                            <span class="about-label">Даты</span>
                         </span>
                     </summary>
                     <div class="about-content">
-                        <p>Кольцевой трек Москва — Нерская — Коломна: сочетание лесных грунтов, грейдера и спокойного асфальта с красивыми видами и разнообразным рельефом.</p>
+                        <p>Старт утром первого дня, финиш и награждение вечером второго. Рекомендуется приехать заранее с готовым комплектом снаряжения.</p>
                     </div>
                 </details>
 
@@ -914,12 +972,12 @@
                 <details class="about-toggle">
                     <summary>
                         <span class="about-head">
-                            <span class="about-value">26–27 июля</span>
-                            <span class="about-label">Даты</span>
+                            <span class="about-value">170 км</span>
+                            <span class="about-label">Общая дистанция</span>
                         </span>
                     </summary>
                     <div class="about-content">
-                        <p>Старт утром первого дня, финиш и награждение вечером второго. Рекомендуется приехать заранее с готовым комплектом снаряжения.</p>
+                        <p>Первый день — длинный этап 110 км и промфиниш у Нерской с ночёвкой в палатках в организованном кэмпе. Второй день — динамичный заезд до Коломны 60 км и финиш у Коломенского Кремля.</p>
                     </div>
                 </details>
             </div>
@@ -932,19 +990,21 @@
             <h2 class="section-title">Программа по дням</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-date">25 Июля (Суббота)</div>
-                    <h3>Старт и Первый этап</h3>
-                    <p>08:00 — Сбор на МЦК Белокаменная.<br>09:00 — Общий старт.<br>Дистанция 110 км до промфиниша.</p>
+                    <div class="timeline-date">Даты проведения</div>
+                    <h3>25 и 26 июля</h3>
+                    <p>Основная программа гонки проходит в двухдневном формате с общим стартом и награждением по итогам этапов.</p>
                 </div>
+
                 <div class="timeline-item">
-                    <div class="timeline-date">25 Июля (Вечер)</div>
-                    <h3>Промфиниш</h3>
-                    <p>Финиш первого дня на реке Нерская. Установка лагеря, ужин, костёр, общение.</p>
+                    <div class="timeline-date">25 июля, суббота</div>
+                    <h3>Стартовый день и промфиниш на Нерской</h3>
+                    <p>08:00 — выдача стартовых номерков;<br>08:00–09:45 — фотографии участников, снаряжения и общее фото;<br>09:45 — брифинг;<br>10:00 — общий старт;<br>до 21:00 — ожидаемый финиш лидера и замыкающего;<br>19:00 — награждение победителей первого дня;<br>потом пикник, вечеринка, купание.</p>
                 </div>
+
                 <div class="timeline-item">
-                    <div class="timeline-date">26 Июля (Воскресенье)</div>
-                    <h3>Второй этап и Финиш</h3>
-                    <p>09:00 — Старт второго дня.<br>Дистанция 70 км.<br>Финиш в Коломне, награждение, эвакуация (электричка).</p>
+                    <div class="timeline-date">10 августа, воскресение</div>
+                    <h3>Второй день</h3>
+                    <p>10:30 — брифинг второго дня;<br>11:00 — общий старт второго дня;<br>16:00 — награждение победителей по результатам двух дней;<br>18:00 — ожидаемый финиш лидера и замыкающего второго дня.</p>
                 </div>
             </div>
         </div>
@@ -953,7 +1013,7 @@
     <!-- Регистрация и Тарифы -->
     <section class="section" id="registration">
         <div class="container">
-            <h2 class="section-title">Регистрация</h2>
+            <h2 class="section-title">Регистрация и взносы</h2>
             
             <div class="pricing-cards">
                 <div class="price-card" data-date="2026-03-01">
@@ -967,7 +1027,7 @@
                     <div class="price-amount">2555 ₽</div>
                 </div>
                 <div class="price-card" data-date="2026-07-19">
-                    <h3>Last Call</h3>
+                    <h3>Последний Звонок</h3>
                     <p>до 19.07.2026</p>
                     <div class="price-amount">3000 ₽</div>
                 </div>
