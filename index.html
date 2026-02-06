@@ -792,27 +792,6 @@
         }
         .service-card h3 { color: var(--color-secondary); }
 
-        .service-book-btn {
-            margin-top: 12px;
-            padding: 10px 14px;
-            border-radius: 999px;
-            border: 1px solid #FF8A00;
-            background: #fff;
-            color: #FF8A00;
-            font-size: 0.82rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-        }
-
-        .service-book-btn:hover {
-            background: #FF8A00;
-            color: #fff;
-            transform: translateY(-1px);
-        }
-
         /* --- 9. FAQ --- */
         .faq-section {
             padding-top: 72px;
@@ -965,9 +944,32 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 34px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            column-gap: 34px;
+            row-gap: 34px;
             align-items: start;
+        }
+
+        .footer-quick {
+            justify-self: start;
+            width: 100%;
+        }
+
+        .footer-quick-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .footer-quick-link {
+            display: inline-block;
+            color: #fff;
+            font-size: 0.9rem;
+            line-height: 1.35;
+        }
+
+        .footer-quick-link:hover {
+            opacity: 0.8;
+            text-decoration: underline;
         }
 
         .footer-heading {
@@ -1393,6 +1395,11 @@
                 gap: 24px;
             }
 
+            .footer-quick {
+                justify-self: start;
+                width: 100%;
+            }
+
             .footer-subscribe-form {
                 max-width: 100%;
             }
@@ -1421,7 +1428,6 @@
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#about" class="nav-link">О гонке</a></li>
                     <li><a href="#program" class="nav-link">Программа</a></li>
-                    <li><a href="#regulations" class="nav-link">Регламент</a></li>
                     <li><a href="#registration" class="nav-link">Регистрация</a></li>
                     <li><a href="#faq" class="nav-link">FAQ</a></li>
                 </ul>
@@ -1585,18 +1591,6 @@
         </div>
     </section>
 
-    <!-- Регламент -->
-    <section class="section" id="regulations">
-        <div class="container" style="text-align: center;">
-            <h2 class="section-title">Документы</h2>
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="#" class="btn btn-outline">Скачать Регламент (PDF)</a>
-                <a href="#" class="btn btn-outline">Маршрут (GPX)</a>
-                <a href="#" class="btn btn-outline">Маршрут MapsMagic</a>
-            </div>
-        </div>
-    </section>
-
     <!-- Промфиниш -->
     <section class="section" id="promfinish">
         <div class="container">
@@ -1679,17 +1673,14 @@
                         <div class="card service-card">
                             <h3>Массаж</h3>
                             <p>Восстановительный спортивный массаж после финиша этапа для снятия мышечного напряжения.</p>
-                            <button class="service-book-btn" type="button">Забронировать слот</button>
                         </div>
                         <div class="card service-card">
                             <h3>Мобильная баня</h3>
                             <p>Мобиба спа В лагере промфиниша для полноценного восстановления и отдыха. Мобиба спа — сердце нашего промфиниша</p>
-                            <button class="service-book-btn" type="button">Забронировать слот</button>
                         </div>
                         <div class="card service-card">
                             <h3>Байк-фит</h3>
                             <p>Быстрая настройка посадки и базовая корректировка велосипеда перед стартом.</p>
-                            <button class="service-book-btn" type="button">Забронировать слот</button>
                         </div>
                     </div>
                 </div>
@@ -1700,17 +1691,14 @@
                         <div class="card service-card">
                             <h3>Ужин</h3>
                             <p>Горячий ужин в кемпе промфиниша после первого соревновательного дня.</p>
-                            <button class="service-book-btn" type="button">Забронировать слот</button>
                         </div>
                         <div class="card service-card">
                             <h3>Завтрак</h3>
                             <p>Сытный завтрак перед стартом второго дня, чтобы спокойно выйти на этап.</p>
-                            <button class="service-book-btn" type="button">Забронировать слот</button>
                         </div>
                         <div class="card service-card">
                             <h3>Самоварная</h3>
                             <p>Чайная зона с самоваром и перекусом для участников и гостей лагеря.</p>
-                            <button class="service-book-btn" type="button">Забронировать слот</button>
                         </div>
                     </div>
                 </div>
@@ -1840,7 +1828,6 @@
                         <li><a href="#registration" class="footer-link">Страница для гонщиков 2026</a></li>
                         <li><a href="#" class="footer-link">Участники гонки 2025</a></li>
                         <li><a href="#" class="footer-link">Участники гонки 2024</a></li>
-                        <li><a href="#" class="footer-link">Фото</a></li>
                     </ul>
                 </div>
 
@@ -1861,6 +1848,15 @@
                         <li><a href="https://t.me/na_nerskuyu" class="footer-link">Канал в Телеграм</a></li>
                     </ul>
                 </div>
+
+                <aside class="footer-column footer-quick">
+                    <h3 class="footer-heading">Скачать</h3>
+                    <div class="footer-quick-list">
+                        <a href="#" class="footer-quick-link">Регламент PDF</a>
+                        <a href="#" class="footer-quick-link">Маршрут MapMagic</a>
+                        <a href="#" class="footer-quick-link">Маршрут GPX</a>
+                    </div>
+                </aside>
 
             </div>
 
